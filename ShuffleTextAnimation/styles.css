@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Libre Caslon Condensed";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+}
+h1 {
+  font-size: 30px;
+  font-family: "PP Neue Montreal";
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.container {
+  width: 100%;
+  padding: 0 2em;
+}
+.container .item {
+  -webkit-box-direction: 100%;
+  padding: 0.125em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 80px;
+  border-bottom: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.item:nth-child(1) {
+  border-top: 2px solid #000;
+}
+.img {
+  max-width: 125px;
+  height: 80px;
+  background-color: #000;
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  flex: 0;
+}
+img {
+  width: 125px;
+  height: auto;
+  object-fit: cover;
+}
+.item:hover {
+  gap: 20px;
+}
+.item:hover .img {
+  flex: 0.5;
+}
+.w1 {
+  text-align: right;
+}

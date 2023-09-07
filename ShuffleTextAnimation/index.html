@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Shuffle Text Animation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Featured Work</h1>
+    <section class="container">
+      <div class="item item-1">
+        <div class="word w1">New</div>
+        <div class="img">
+          <img src="/img/img1.jpg" alt="" />
+        </div>
+        <div class="word w2">Works</div>
+      </div>
+      <div class="item item-2">
+        <div class="word w1">Photo</div>
+        <div class="img">
+          <img src="/img/img6.jpg" alt="" />
+        </div>
+        <div class="word w2">Studio</div>
+      </div>
+      <div class="item item-3">
+        <div class="word w1">Age of</div>
+        <div class="img">
+          <img src="/img/img13.jpg" alt="" />
+        </div>
+        <div class="word w2">New Trends</div>
+      </div>
+      <div class="item item-4">
+        <div class="word w1">Los</div>
+        <div class="img">
+          <img src="/img/img7.jpg" alt="" />
+        </div>
+        <div class="word w2">Angeles</div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const items = document.querySelectorAll(".item");
+
+        items.forEach((item) => {
+          item.addEventListener("mouseenter", shuffleAnimation);
+        });
+      });
+
+      function getRandomCharacter() {
+        const chars =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        return chars[Math.floor(Math.random() * chars.length)];
+      }
+
+      function shuffleAnimation(event) {
+        const target = event.currentTarget;
+
+        if (target.dataset.animating) {
+          return;
+        }
+
+        target.dataset.animating = true;
+
+        const words = target.querySelectorAll(".word");
+        const originalWords = Array.from(words).map((word) => word.textContent);
+
+        let shuffles = 0;
+        const maxShuffles = 10;
+        const intervalDuration = 500 / maxShuffles;
+
+        let animationInterval = setInterval(() => {
+          if (shuffles >= maxShuffles) {
+            clearInterval(animationInterval);
+            words.forEach((word, index) => {
+              word.textContent = originalWords[index];
+            });
+            delete target.dataset.animating;
+          } else {
+            words.forEach((word) => {
+              const length = word.textContent.length;
+              let shuffledText = "";
+              for (let i = 0; i < length; i++) {
+                shuffledText += getRandomCharacter();
+              }
+              word.textContent = shuffledText;
+            });
+            shuffles++;
+          }
+        }, intervalDuration);
+      }
+    </script>
+  </body>
+</html>
