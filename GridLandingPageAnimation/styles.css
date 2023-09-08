@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "PP Neue Montreal";
+}
+#overlay-light {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 1;
+}
+#overlay-dark {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 2;
+}
+.content {
+  width: 100%;
+  height: 100vh;
+  padding: 1em 0;
+}
+.content > * {
+  position: relative;
+  z-index: 3;
+  mix-blend-mode: difference;
+  color: #fff;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  margin: 0.2em 0;
+}
+.nav {
+  text-transform: uppercase;
+}
+.nav-divider {
+  margin-top: 1em;
+}
+.row {
+  width: 100%;
+  height: 20px;
+  display: flex;
+  padding: 0 2em;
+}
+.row > .col {
+  position: relative;
+  flex: 1;
+}
+.row > .col:first-child {
+  flex: 2;
+}
+.marquee {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  padding-top: 4em;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 3;
+}
+.marquee span {
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: -10px;
+  color: #000;
+  mix-blend-mode: normal !important;
+  font-size: 12em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-left: -10%;
+  animation: marquee-animation 80s linear infinite;
+}
+@keyframes marquee-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+img {
+  position: relative;
+  bottom: 20px;
+  width: 200px;
+  display: inline-block;
+}
