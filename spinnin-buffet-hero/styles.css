@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow: hidden;
+  font-family: "Helvetica Neue";
+  background-color: black;
+  color: whitesmoke;
+}
+
+#hero {
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  position: relative;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: clamp(20px, 8dvw, 184px);
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.discover {
+  width: 100%;
+  position: absolute;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 48px;
+  z-index: 3;
+  pointer-events: none;
+  align-self: flex-end;
+}
+
+.frame {
+  width: 10%;
+  border: 1px solid red;
+  opacity: 0;
+  transition: all 250 cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.frame:hover {
+  opacity: 1;
+}
+
+.frame:nth-child(2) {
+  opacity: 1;
+}
+
+.frame img {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
